@@ -1,0 +1,51 @@
+From fc81173d5ea88b00043c29c491f0bb25467b382e Mon Sep 17 00:00:00 2001
+From: thewisenerd <thewisenerd@protonmail.com>
+Date: Mon, 9 Jan 2017 21:18:45 +0530
+Subject: [PATCH] drivers: Add support for xiaomi specific platform selection
+
+---
+ drivers/platform/Kconfig        |  1 +
+ drivers/platform/xiaomi/Kconfig | 24 ++++++++++++++++++++++++
+ 2 files changed, 25 insertions(+)
+ create mode 100644 drivers/platform/xiaomi/Kconfig
+
+diff --git a/drivers/platform/Kconfig b/drivers/platform/Kconfig
+index 832923dc8efe..5a49e663075b 100644
+--- a/drivers/platform/Kconfig
++++ b/drivers/platform/Kconfig
+@@ -7,4 +7,5 @@ endif
+ 
+ if ARCH_MSM
+ source "drivers/platform/msm/Kconfig"
++source "drivers/platform/xiaomi/Kconfig"
+ endif
+diff --git a/drivers/platform/xiaomi/Kconfig b/drivers/platform/xiaomi/Kconfig
+new file mode 100644
+index 000000000000..7bbe176c8d66
+--- /dev/null
++++ b/drivers/platform/xiaomi/Kconfig
+@@ -0,0 +1,24 @@
++# Xiaomi configuration options
++
++config MACH_XIAOMI
++	bool "XIAOMI device"
++	depends on ARCH_MSM
++	help
++	  Support for Xiaomi products
++
++config MACH_XIAOMI_MSM8939
++	bool "XIAOMI MSM8939"
++	depends on ARCH_MSM
++	select MACH_XIAOMI
++	help
++	  Support for MSM8939 Xiaomi variants
++
++menu "Xiaomi board selection"
++
++	config MACH_XIAOMI_FERRARI
++		bool "XIAOMI_FERRARI board"
++		select MACH_XIAOMI_MSM8939
++		help
++		  Support for Xiaomi Mi 4i variant
++
++endmenu
