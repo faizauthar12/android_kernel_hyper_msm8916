@@ -11,5 +11,10 @@ ifeq ($(CONFIG_MACH_WT86518),y)
 obj-$(CONFIG_MSMB_CAMERA) += camera_wt86518_v2/
 else
 obj-$(CONFIG_MSMB_CAMERA) += camera_v2/
+
+ifneq ($(CONFIG_MACH_XIAOMI_FERRARI),y)
+obj-$(CONFIG_MSMB_CAMERA) += camera_ferrari_v2/
+else
+obj-$(CONFIG_MSMB_CAMERA) += camera_v2/
 endif
 obj-$(CONFIG_MSM_VPU) += vpu/
