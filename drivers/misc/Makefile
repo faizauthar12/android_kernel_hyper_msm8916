@@ -59,6 +59,7 @@ obj-$(CONFIG_SRAM)		+= sram.o
 obj-$(CONFIG_APANIC_MMC)	+= apanic_mmc.o
 obj-$(CONFIG_TSIF) += msm_tsif.o
 obj-$(CONFIG_HAPTIC_ISA1200)		+= isa1200.o
+obj-$(CONFIG_HAPTIC_ISA1000)	+= isa1000.o
 obj-$(CONFIG_QSEECOM) += qseecom.o
 ifdef CONFIG_COMPAT
 obj-$(CONFIG_QSEECOM) += compat_qseecom.o
