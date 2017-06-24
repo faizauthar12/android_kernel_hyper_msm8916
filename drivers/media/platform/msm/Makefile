@@ -7,12 +7,14 @@ obj-$(CONFIG_MSM_VIDC_V4L2)     += vidc/
 obj-$(CONFIG_MSM_WFD) += wfd/
 obj-y += broadcast/
 obj-$(CONFIG_DVB_MPQ) += dvb/
+
 ifeq ($(CONFIG_MACH_WT86518),y)
 obj-$(CONFIG_MSMB_CAMERA) += camera_wt86518_v2/
 else
 obj-$(CONFIG_MSMB_CAMERA) += camera_v2/
+endif
 
-ifneq ($(CONFIG_MACH_XIAOMI_FERRARI),y)
+ifeq ($(CONFIG_MACH_XIAOMI_FERRARI),y)
 obj-$(CONFIG_MSMB_CAMERA) += camera_ferrari_v2/
 else
 obj-$(CONFIG_MSMB_CAMERA) += camera_v2/
